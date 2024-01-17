@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import NavLinks from "@/src/components/Navbar/NavLinks/NavLinks";
-import Acount from "@/src/components/Navbar/Acount/Acount";
+import Acount from "@/src/components/Navbar/acount/Acount";
 import { useEffect, useRef } from "react";
 const NavBar = () => {
   const headerRef = useRef(null);
