@@ -26,7 +26,7 @@ const NavBar = () => {
   return (
     <header
       ref={headerRef}
-      className="lg:px-16 px-10 flex min-h-24 max-h-28 z-50 justify-between items-center"
+      className="lg:px-14 px-7 flex min-h-24 max-h-28 z-50 justify-between items-center"
     >
       <Link href="/" className=" text-2xl font-extrabold  uppercase ">
         univease
