@@ -12,7 +12,7 @@
 }
 @layer components {
   .container {
-    @apply mx-auto w-full px-7 flex items-center justify-between;
+    @apply lg:px-14 px-7;
   }
   .sticky-header {
     @apply top-0 left-0 h-[100px] w-full shadow-sm transition-all bg-btn z-40 leading-[100px] sticky;
