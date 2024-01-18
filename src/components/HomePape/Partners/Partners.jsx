@@ -42,17 +42,23 @@ const Partners = () => {
   ];
 
   return (
-    <div className="container py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-      {partnerData.map((item, index) => (
-        <div
-          key={index}
-          className={`col-span-${index === 0 || index === 4 ? 2 : 1}`}
-        >
-          <Link href="/university">
-            <Card data={item} />
-          </Link>
-        </div>
-      ))}
+    <div className="container py-20 flex flex-col gap-4">
+      <h1 className="font-bold text-lg text-btn">Our Exclusive Partners</h1>
+
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+        {partnerData.map((item, index) => (
+          <div
+            key={index}
+            className={`${
+              index === 0 || index === 4 ? "lg:col-span-2 " : "col-span-1"
+            }`}
+          >
+            <Link href="/university">
+              <Card data={item} />
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

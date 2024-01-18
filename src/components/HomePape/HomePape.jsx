@@ -2,6 +2,7 @@ import LeftCard from "@/src/components/HomePape/cards/LeftCard";
 import RightCard from "@/src/components/HomePape/cards/RightCard";
 import Cards from "@/src/components/HomePape/cards/Cards";
 import Partners from "@/src/components/HomePape/Partners/Partners";
+import Blog from "@/src/components/HomePape/blog/Blog";
 import { FaRegUser } from "react-icons/fa";
 import { BsBank } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
@@ -25,6 +26,7 @@ const HomePape = () => {
         ))}
       </div>
       <Partners />
+      <Blog />
     </>
   );
 };
