@@ -3,6 +3,7 @@ import Card from "@/src/components/Slide/Card";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import Link from "next/link";
 import "swiper/css";
 const SlideCard = () => {
   const cardData = [
@@ -150,7 +151,9 @@ const SlideCard = () => {
     >
       {cardData.map((item, index) => (
         <SwiperSlide className="lg:mr-28 mr-3">
-          <Card key={index} data={item} />
+          <Link href="/university">
+            <Card key={index} data={item} />
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>
