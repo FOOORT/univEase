@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  section {
-    @apply py-20 mt-3;
-  }
   body {
     @apply text-textSoft bg-bgColor;
   }
@@ -15,7 +12,7 @@
     @apply lg:px-14 px-7;
   }
   .sticky-header {
-    @apply top-0 left-0 h-[100px] w-full shadow-sm transition-all bg-btn z-40 leading-[100px] sticky;
+    @apply top-0 left-0 h-[100px] w-full shadow-sm transition-all bg-bgColor z-40 leading-[100px] sticky;
   }
 }
 
