@@ -1,13 +1,17 @@
 import LeftCard from "@/src/components/HomePape/cards/LeftCard";
 import RightCard from "@/src/components/HomePape/cards/RightCard";
 import Cards from "@/src/components/HomePape/cards/Cards";
+import Partners from "@/src/components/HomePape/Partners/Partners";
 import { FaRegUser } from "react-icons/fa";
+import { BsBank } from "react-icons/bs";
+import { TiTick } from "react-icons/ti";
+import { SiMinutemailer } from "react-icons/si";
 const HomePape = () => {
   const cardsDataz = [
     { icon: <FaRegUser />, number: 1, title: "Create Profile" },
-    { icon: <FaRegUser />, number: 2, title: "Shortlist University" },
-    { icon: <FaRegUser />, number: 3, title: "Send Application" },
-    { icon: <FaRegUser />, number: 4, title: "Get admission" },
+    { icon: <BsBank />, number: 2, title: "Shortlist University" },
+    { icon: <SiMinutemailer />, number: 3, title: "Send Application" },
+    { icon: <TiTick />, number: 4, title: "Get admission" },
   ];
   return (
     <>
@@ -20,6 +24,7 @@ const HomePape = () => {
           <Cards key={index} data={item} />
         ))}
       </div>
+      <Partners />
     </>
   );
 };
