@@ -9,7 +9,7 @@
 }
 @layer components {
   .container {
-    @apply lg:px-14 px-7 mx-auto;
+    @apply lg:px-20 px-7 mx-auto;
   }
   .sticky-header {
     @apply top-0 left-0 h-[100px] w-full shadow-sm transition-all bg-bgColor z-40 leading-[100px] sticky;

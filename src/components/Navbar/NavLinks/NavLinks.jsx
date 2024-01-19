@@ -20,7 +20,7 @@ const NavLinks = () => {
   ];
 
   return (
-    <ul className="hidden lg:flex gap-4 items-center px-4 max-h-6 bg-bgSoft rounded-full py-6 shadow-2xl cursor-pointer ">
+    <ul className="hidden lg:flex gap-4 items-center px-4 max-h-6 bg-bgSoft rounded-full py-6 shadow-lg shadow-gray-100 cursor-pointer ">
       {linkdata.map((item, index) => (
         <li key={index} className=" w-full h-full font-medium ">
           {item.display}
