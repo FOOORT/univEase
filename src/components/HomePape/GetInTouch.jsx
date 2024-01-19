@@ -2,7 +2,7 @@ import React from "react";
 
 const GetInTouch = () => {
   return (
-    <div className=" text-nowrap overflow-hidden ">
+    <div className="pb-10 text-nowrap overflow-hidden ">
       <p>
         GET IN TOUCH GET IN TOUCH GET IN TOUCH GET IN TOUCH GETIN TOUCH GET IN
         TOUCH GET IN TOUCH GET IN TOUCH GET IN TOUCH GET IN TOUCH GET IN TOUCH
