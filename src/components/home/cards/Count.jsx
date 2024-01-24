@@ -11,7 +11,7 @@ const Count = () => {
     { icon: <TiTick />, number: 4, title: "Get admission" },
   ];
   return (
-    <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 py-7 ">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 py-7 ">
       {cardsDataz.map((item, index) => (
         <Cards key={index} data={item} />
       ))}

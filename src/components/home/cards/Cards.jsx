@@ -5,7 +5,9 @@ const Cards = ({ data }) => {
         {data?.icon}
       </div>
       <div className=" text-dark font-black text-3xl">{data?.number}</div>
-      <div className=" text-dark text-md font-medium">{data?.title}</div>
+      <div className=" text-dark text-md font-medium text-center">
+        {data?.title}
+      </div>
     </div>
   );
 };

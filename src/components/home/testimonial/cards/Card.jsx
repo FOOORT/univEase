@@ -1,7 +1,7 @@
 import UsersCard from "@/src/components/home/testimonial/cards/UsersCard";
 const Card = ({ data }) => {
   return (
-    <div className="flex flex-col gap-6 ">
+    <div className="flex flex-col gap-6 mt-12">
       <h1 className="font-bold text-md text-btn text-center">{data.title}</h1>
       <div className="w-full lg:w-4/5 mx-auto ">
         <p className="text-md font-medium">{data.content}</p>
