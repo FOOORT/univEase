@@ -1,11 +1,11 @@
 const Acount = () => {
   return (
-    <ul className="flex  items-center justify-center cursor-pointer max-h-5 py-5  rounded-full  border border-textSoft">
-      <li className="px-3 max-h-8 flex items-center justify-center ">Login</li>
-      <li className="flex items-center justify-center text-nowrap max-h-10 bg-textSoft  text-bgColor px-3 rounded-full py-4 ">
+    <nav className="hidden md:flex gap-1 items-center border-2 border-dark bg-slate-200 rounded-full text-sm scale-[0.96] hover:scale-[0.99] duration-100">
+      <button className="rounded-l-full h-12 pl-4 pr-1">Sign in</button>
+      <button className="bg-dark text-slate-100 duration-100 h-12 px-6 rounded-full">
         Sign up
-      </li>
-    </ul>
+      </button>
+    </nav>
   );
 };
 

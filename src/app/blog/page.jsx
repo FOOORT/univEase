@@ -1,5 +1,5 @@
-import GetInTouch from "@/src/components/HomePape/GetInTouch";
-import Testimonial from "@/src/components/HomePape/testimonial/Testimonial";
+import GetInTouch from "@/src/components/home/GetInTouch";
+import Testimonial from "@/src/components/home/testimonial/Testimonial";
 
 const BlogPage = () => {
   return (

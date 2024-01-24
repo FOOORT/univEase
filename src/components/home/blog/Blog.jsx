@@ -1,4 +1,4 @@
-import FetchBlogCard from "@/src/components/HomePape/blog/cards/FetchBlogCard";
+import FetchBlogCard from "@/src/components/home/blog/cards/FetchBlogCard";
 const Blog = () => {
   return (
     <div className="container flex flex-col gap-4 ">

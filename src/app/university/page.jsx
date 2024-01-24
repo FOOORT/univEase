@@ -1,7 +1,7 @@
-import GetInTouch from "@/src/components/HomePape/GetInTouch";
-import Blog from "@/src/components/HomePape/blog/Blog";
-import Count from "@/src/components/HomePape/cards/Count";
-import Testimonial from "@/src/components/HomePape/testimonial/Testimonial";
+import GetInTouch from "@/src/components/home/GetInTouch";
+import Blog from "@/src/components/home/blog/Blog";
+import Count from "@/src/components/home/cards/Count";
+import Testimonial from "@/src/components/home/testimonial/Testimonial";
 import Welcome from "@/src/app/university/welcome/Welcome";
 import Program from "@/src/app/university/program/Program";
 

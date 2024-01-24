@@ -1,4 +1,4 @@
-import UsersCard from "@/src/components/HomePape/testimonial/cards/UsersCard";
+import UsersCard from "@/src/components/home/testimonial/cards/UsersCard";
 const Card = ({ data }) => {
   return (
     <div className="flex flex-col gap-6 ">

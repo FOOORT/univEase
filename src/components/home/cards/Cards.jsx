@@ -4,8 +4,8 @@ const Cards = ({ data }) => {
       <div className=" text-bgColor font-bold bg-btn px-3 py-3 w-14 h-14 rounded-full flex items-center justify-center">
         {data?.icon}
       </div>
-      <div className=" text-textSoft font-black text-3xl">{data?.number}</div>
-      <div className=" text-textSoft text-md font-medium">{data?.title}</div>
+      <div className=" text-dark font-black text-3xl">{data?.number}</div>
+      <div className=" text-dark text-md font-medium">{data?.title}</div>
     </div>
   );
 };

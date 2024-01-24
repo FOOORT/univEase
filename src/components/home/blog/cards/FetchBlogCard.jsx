@@ -1,4 +1,4 @@
-// import Card from "@/src/components/HomePape/blog/cards/Card";
+// import Card from "@/src/components/home/blog/cards/Card";
 import Link from "next/link";
 import Card from "./Card";
 const FetchBlogCard = () => {
