@@ -15,7 +15,7 @@ const LeftCard = () => {
         recruitment partners with opportunities at top universities around the
         world.
       </p>
-      <div className="border rounded-3xl font-semibold w-fit px-3 py-3 cursor-pointer border-textSoft">
+      <div className="border rounded-3xl font-semibold w-fit px-3 py-3 cursor-pointer border-dark">
         Our Services
       </div>
     </div>

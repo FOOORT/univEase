@@ -1,4 +1,4 @@
-import Card from "@/src/components/HomePape/testimonial/cards/Card";
+import Card from "@/src/components/home/testimonial/cards/Card";
 
 const Testimonial = () => {
   const testData = [

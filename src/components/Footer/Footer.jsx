@@ -4,8 +4,8 @@ import { TiTick } from "react-icons/ti";
 import { SiMinutemailer } from "react-icons/si";
 const Footer = () => {
   return (
-    <div className="bg-bgSoft">
-      <div className="container gap-3 py-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+    <div className="bg-bgSoft mb-4 rounded-xl">
+      <div className="gap-3 py-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
         <h1 className="text-2xl font-black italic text-btn">UnivEase</h1>
         <div className="flex flex-col gap-3">
           <h2 className="text-xl font-bold text-btn">Services</h2>
@@ -27,18 +27,20 @@ const Footer = () => {
           <p>Study Events</p>
         </div>
         <div className="flex flex-col gap-3">
-          <p className="text-sm font-medium">Bringing Quality Education to Students Around The World!</p>
+          <p className="text-sm font-medium">
+            Bringing Quality Education to Students Around The World!
+          </p>
           <div className="flex gap-2 items-center">
-            <div className="lg:py-3 py-2 lg:px-3 px-2 rounded-full cursor-pointer border border-textSoft ">
+            <div className="lg:py-3 py-2 lg:px-3 px-2 rounded-full cursor-pointer border border-dark ">
               <FaRegUser />
             </div>
-            <div className="lg:py-3 py-2 lg:px-3 px-2 rounded-full cursor-pointer border border-textSoft ">
+            <div className="lg:py-3 py-2 lg:px-3 px-2 rounded-full cursor-pointer border border-dark ">
               <BsBank />
             </div>
-            <div className="lg:py-3 py-2 lg:px-3 px-2 rounded-full cursor-pointer border border-textSoft ">
+            <div className="lg:py-3 py-2 lg:px-3 px-2 rounded-full cursor-pointer border border-dark ">
               <TiTick />
             </div>
-            <div className="lg:py-3 py-2 lg:px-3 px-2 rounded-full cursor-pointer border border-textSoft ">
+            <div className="lg:py-3 py-2 lg:px-3 px-2 rounded-full cursor-pointer border border-dark ">
               <SiMinutemailer />
             </div>
           </div>

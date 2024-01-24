@@ -1,4 +1,4 @@
-import Card from "@/src/components/HomePape/Partners/cards/Card";
+import Card from "@/src/components/home/Partners/cards/Card";
 import Link from "next/link";
 
 const Partners = () => {

@@ -13,7 +13,7 @@ module.exports = {
       colors: {
         bgColor: "#FFFFFF",
         bgSoft: "#EAEAEA",
-        textSoft: "#454545",
+        dark: "#454545",
         btn: "#0075FF",
       },
       animation: {

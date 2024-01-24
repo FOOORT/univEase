@@ -130,7 +130,7 @@ const SlideCard = () => {
       }}
       navigation={true}
       modules={[Autoplay]}
-      className="mt-14"
+      className="relative mt-40 bg-blue-300"
       breakpoints={{
         // When window width is <= 640px (mobile)
         640: {
