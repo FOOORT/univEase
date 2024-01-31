@@ -1,9 +1,10 @@
+"use client";
 import GetInTouch from "@/src/components/home/GetInTouch";
 import Blog from "@/src/components/home/blog/Blog";
 import Count from "@/src/components/home/cards/Count";
 import Testimonial from "@/src/components/home/testimonial/Testimonial";
 import Welcome from "@/src/components/Common/Welcome";
-import ProgramsContiner from "@/src/components/contents/ProgramsContainer";
+import ProgramsContainer from "@/src/components/contents/ProgramsContainer";
 import Programs from "@/src/components/static/programs";
 
 const UniversityPage = () => {
@@ -13,7 +14,7 @@ const UniversityPage = () => {
         badge="University of Rwanda is a public collegiate"
         title="University Of Rwanda"
       />
-      <ProgramsContiner datas={Programs} />
+      <ProgramsContainer datas={Programs} />
       <Count />
       <Blog />
       <Testimonial />
