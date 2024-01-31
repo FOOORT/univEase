@@ -5,13 +5,13 @@ const Card = ({ data, activate }) => {
       className="flex flex-col gap-3 mt-3 scale-95 hover:scale-100 duration-100 active:scale-95"
       onClick={() => activate(true)}
     >
-      <div className="relative h-44 xl:h-64 rounded-2xl overflow-hidden">
+      <div className="relative h-72 xl:h-64 rounded-2xl overflow-hidden flex justify-center items-center">
         <Image
           src={data.image}
           alt="Card Image"
           width={400}
           height={400}
-          className="w-full"
+          className={`h-full w-full`}
         />
       </div>
       <h2 className="text-base font-bold text-wrap overflow-hidden ">
