@@ -31,7 +31,7 @@ const Testimonial = () => {
     },
   ];
   return (
-    <div className="container py-20">
+    <div className="py-20">
       {testData.map((item, index) => (
         <Card data={item} key={index} />
       ))}

@@ -1,123 +1,16 @@
-import Welcome from "@/src/components/Welcome/Welcome";
-import SlideCard from "@/src/components/Slide/SlideCard";
+import Welcome from "@/src/components/Common/Welcome";
+import CardData from "@/src/components/static/homeCarousel";
 import Carousel from "@/src/components/Slide/Carousel";
-
-const cardData = [
-  {
-    className: "University Of Rwanda",
-    image: "/uni1.jpg",
-    classType: [
-      { classTypes: "Economics" },
-      { classTypes: "IT" },
-      { classTypes: "Science" },
-    ],
-  },
-  {
-    className: "Adventist University of Central Africa",
-    image: "/auca.jpg",
-    classType: [
-      { classTypes: "Computer" },
-      { classTypes: "IT" },
-      { classTypes: "Agriculture" },
-    ],
-  },
-  {
-    className: "East African University-Rwanda",
-    image: "/University.png",
-    classType: [
-      { classTypes: "Military" },
-      { classTypes: "Veterinary" },
-      { classTypes: "Politics" },
-    ],
-  },
-  {
-    className: "University Of Kigali",
-    image: "/univ.jpg",
-    classType: [
-      { classTypes: "Business" },
-      { classTypes: "IT" },
-      { classTypes: "Science" },
-    ],
-  },
-  {
-    className: "IPRC South Huye Campus",
-    image: "/University.jpg",
-    classType: [
-      { classTypes: "Saving" },
-      { classTypes: "IT" },
-      { classTypes: "Agriculture" },
-    ],
-  },
-  {
-    className: "IPRC West Karongi Campus",
-    image: "/uni.jpg",
-    classType: [
-      { classTypes: "Saving" },
-      { classTypes: "IT" },
-      { classTypes: "Agriculture" },
-    ],
-  },
-  {
-    className: "University Of Rwanda",
-    image: "/uni1.jpg",
-    classType: [
-      { classTypes: "Economics" },
-      { classTypes: "IT" },
-      { classTypes: "Science" },
-    ],
-  },
-  {
-    className: "Adventist University of Central Africa",
-    image: "/auca.jpg",
-    classType: [
-      { classTypes: "Computer" },
-      { classTypes: "IT" },
-      { classTypes: "Agriculture" },
-    ],
-  },
-  {
-    className: "East African University-Rwanda",
-    image: "/University.png",
-    classType: [
-      { classTypes: "Military" },
-      { classTypes: "Veterinary" },
-      { classTypes: "Politics" },
-    ],
-  },
-  {
-    className: "University Of Kigali",
-    image: "/univ.jpg",
-    classType: [
-      { classTypes: "Business" },
-      { classTypes: "IT" },
-      { classTypes: "Science" },
-    ],
-  },
-  {
-    className: "IPRC South Huye Campus",
-    image: "/University.jpg",
-    classType: [
-      { classTypes: "Saving" },
-      { classTypes: "IT" },
-      { classTypes: "Agriculture" },
-    ],
-  },
-  {
-    className: "IPRC West Karongi Campus",
-    image: "/uni.jpg",
-    classType: [
-      { classTypes: "Saving" },
-      { classTypes: "IT" },
-      { classTypes: "Agriculture" },
-    ],
-  },
-];
 
 const Hero = () => {
   return (
-    <section className=" h-screen w-full flex flex-col items-center justify-center bg">
-      <Welcome />
-      <Carousel cardData={cardData} />
+    <section className=" h-screen w-full flex flex-col items-center justify-center">
+      <Welcome
+        badge="Over 3 million ready-to-expand skills!"
+        title="Study with the world’s top featured Colleges."
+        desc="Connect with millions of top-rated University & colleges around the world."
+      />
+      <Carousel cardData={CardData} />
     </section>
   );
 };
