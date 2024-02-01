@@ -22,7 +22,8 @@ export default function RootLayout({
         <div className="flex justify-center">
           <NavBar />
           <div className="container">
-            {children} <Footer />
+            {children}
+            <Footer />
           </div>
           <Screen />
         </div>
