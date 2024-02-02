@@ -30,7 +30,7 @@ const Contents = () => {
     <div className="py-20 flex flex-col gap-4 w-full">
       <h1 className="font-bold text-lg text-btn">Our exclusive Universities</h1>
 
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         {datas.length > 0 ? (
           datas.map((item, index) => (
             <div
@@ -48,7 +48,9 @@ const Contents = () => {
             </div>
           ))
         ) : (
-          <Loading />
+          <div className=" absolute  flex justify-center items-center w-full">
+            <Loading />
+          </div>
         )}
       </div>
     </div>

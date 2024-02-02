@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/src/components/Navbar/NavBar";
 import Footer from "@/src/components/Footer/Footer";
 import Screen from "@/src/components/screen";
+import GetInTouch from "../components/home/GetInTouch";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,14 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex justify-center">
-          <NavBar />
-          <div className="container">
-            {children}
-            <Footer />
-          </div>
-          <Screen />
-        </div>
+        {/* <div className="flex justify-center"> */}
+        <NavBar />
+        <div className="container">{children}</div>
+        <GetInTouch />
+        <Footer />
+        <Screen />
+        {/* </div> */}
       </body>
     </html>
   );

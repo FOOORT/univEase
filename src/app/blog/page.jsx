@@ -1,4 +1,3 @@
-import GetInTouch from "@/src/components/home/GetInTouch";
 import Testimonial from "@/src/components/home/testimonial/Testimonial";
 
 const BlogPage = () => {
@@ -6,7 +5,6 @@ const BlogPage = () => {
     <>
       <div className="container py-20 ">BlogPage</div>
       <Testimonial />
-      <GetInTouch />
     </>
   );
 };
