@@ -1,5 +1,4 @@
 "use client";
-import GetInTouch from "@/src/components/home/GetInTouch";
 import Blog from "@/src/components/home/blog/Blog";
 import Count from "@/src/components/home/cards/Count";
 import Testimonial from "@/src/components/home/testimonial/Testimonial";
@@ -12,7 +11,10 @@ const UniversityPage = () => {
   const [Unive, SetUniv] = useState({});
   const [selectedUniversityId, setSelectedUniversityId] = useState(null);
   useEffect(() => {
-    const id = typeof window !== "undefined" ? localStorage.getItem("universityId"): null;
+    const id =
+      typeof window !== "undefined"
+        ? localStorage.getItem("universityId")
+        : null;
     setSelectedUniversityId(id);
     if (selectedUniversityId) {
       const university = async () => {
@@ -45,7 +47,6 @@ const UniversityPage = () => {
       <Count />
       <Blog />
       <Testimonial />
-      <GetInTouch />
     </div>
   );
 };

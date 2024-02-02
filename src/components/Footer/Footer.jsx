@@ -4,8 +4,8 @@ import { TiTick } from "react-icons/ti";
 import { SiMinutemailer } from "react-icons/si";
 const Footer = () => {
   return (
-    <div className="bg-bgSoft mb-4 rounded-xl px-4 flex flex-col justify-center">
-      <div className="gap-3 py-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+    <div className="bg-bgSoft  rounded-xl px-4 flex flex-col justify-center">
+      <div className="container  gap-3 py-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
         <h1 className="text-2xl font-black italic text-btn">UnivEase</h1>
         <div className="flex flex-col gap-3">
           <h2 className="text-xl font-bold text-btn">Services</h2>
