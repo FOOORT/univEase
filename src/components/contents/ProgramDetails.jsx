@@ -78,13 +78,13 @@ const ProgramDetails = ({ activate }) => {
 
             <div className="flex gap-4 items-center mt-8">
               <Button
-                path="/Apply"
+                path="/apply"
                 icon={<TfiArrowTopRight />}
                 title="Apply now"
                 classes="text"
               />
               <Button
-                path="/Apply"
+                path="/apply"
                 icon={<HiOutlineHeart />}
                 title="Save"
                 classes="!bg-white !text-dark border border-slate-500 text-slate-500"
