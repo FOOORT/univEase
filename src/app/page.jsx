@@ -4,7 +4,6 @@ import Testimonial from "@/src/components/home/testimonial/Testimonial";
 import Blog from "@/src/components/home/blog/Blog";
 import Count from "@/src/components/home/cards/Count";
 import About from "@/src/components/home/About";
-import Universities from "@/src/components/static/universities";
 
 export default function Home() {
   return (
