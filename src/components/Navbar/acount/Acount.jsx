@@ -17,7 +17,7 @@ const Acount = () => {
           Sign up
         </button>
       </nav>
-      {isopen && <SignupOnboard />}
+      {isopen && <SignupOnboard setOpen={SetIsOpen}/>}
     </>
   );
 };
