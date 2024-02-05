@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
 import SignupOnboard from "../../Common/SignupOnboard";
-
+import CreateAccount from "../../Common/CreateAccount";
 const Account = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSignupOnboardOpen, setIsSignupOnboardOpen] = useState(false);
+
   const [modalType, setModalType] = useState(""); // No default type
 
   const handleModal = (type) => {
-    setIsModalOpen(!isModalOpen);
+    setIsSignupOnboardOpen(!isSignupOnboardOpen);
     setModalType(type);
   };
 
@@ -27,7 +28,7 @@ const Account = () => {
           Sign up
         </button>
       </nav>
-      {isModalOpen && (
+      {isSignupOnboardOpen && (
         <SignupOnboard
           title={modalType === "signup" ? "Who are you?" : "SignIn"}
           subtitle={modalType === "signup" ? "Help us direct you well" : ""}
@@ -36,7 +37,7 @@ const Account = () => {
           inputs={modalType === "signin"}
           buttons={modalType === "signup"}
           height={modalType === "signin" ? "80vh" : ""}
-          setOpen={setIsModalOpen}
+          setOpen={setIsSignupOnboardOpen}
         />
       )}
     </>

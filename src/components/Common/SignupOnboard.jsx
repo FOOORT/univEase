@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import Button from "../Common/Button";
 import Image from "next/image";
+
 const SignupOnboard = ({
   setOpen,
   title,
@@ -31,10 +32,10 @@ const SignupOnboard = ({
           >
             <IoIosClose />
           </span>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 !w-full">
             <h2 className="text-md font-bold mt-1">{title ? title : title}</h2>
             {inputs ? (
-              <form className="flex flex-col gap-2">
+              <form className="flex flex-col gap-2 !w-full">
                 <input
                   type="text"
                   placeholder="Email or Username"
@@ -47,7 +48,7 @@ const SignupOnboard = ({
                 />
                 <Button
                   title="Continue"
-                  classes="bg-dark  !text-white w-full rounded-xl scale-100"
+                  classes="bg-dark  !text-white w-full rounded-xl !scale-100"
                 />
                 <div className="flex justify-between">
                   <div className="py-[1px] px-[1px] rounded-full border border-dark flex items-center justify-center ">
@@ -57,15 +58,15 @@ const SignupOnboard = ({
                     {reset ? reset : reset}
                   </h2>
                 </div>
-                <h2 className="text-md font-bold text-black ">Or</h2>
+
                 <div className="flex items-center gap-1">
                   <Button
                     icon={<FaGithub />}
-                    classes="bg-dark  px-1 !text-white w-full rounded-xl text-nowrap scale-100"
+                    classes="bg-dark  px-1 !text-white w-full rounded-xl text-nowrap !scale-100"
                   />
                   <Button
                     icon={<SiGmail />}
-                    classes="bg-dark  !text-white w-full rounded-xl  text-nowrap scale-100"
+                    classes="bg-dark  !text-white w-full rounded-xl  text-nowrap !scale-100"
                   />
                 </div>
                 <h5 className="text-sm font-medium ">
@@ -100,7 +101,7 @@ const SignupOnboard = ({
         </div>
 
         <div
-          className={`relative  w-full flex items-center ${
+          className={`relative  w-full hidden md:block lg:items-center  ${
             height ? `h-${height}` : "h-[60vh]"
           }`}
         >
