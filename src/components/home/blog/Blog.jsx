@@ -1,5 +1,6 @@
 import FetchBlogCard from "@/src/components/home/blog/cards/FetchBlogCard";
 const Blog = () => {
+  
   return (
     <div className="flex flex-col gap-4 w-full">
       <h1 className="font-bold text-xl text-btn">Our recent Blog</h1>
