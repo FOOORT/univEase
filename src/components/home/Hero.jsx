@@ -4,7 +4,7 @@ import Carousel from "@/src/components/Slide/Carousel";
 
 const Hero = () => {
   return (
-    <section className=" h-screen w-full flex flex-col items-center justify-center">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center">
       <Welcome
         badge="Over 3 million ready-to-expand skills!"
         title="Study with the world’s top featured Colleges."
