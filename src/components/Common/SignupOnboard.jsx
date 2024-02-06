@@ -108,7 +108,7 @@ const SignupOnboard = ({
           <Image
             src={ifoto ? ifoto : ifoto}
             layout="fill"
-            objectFit="cover"
+            objectfit="cover"
             alt="Ifoto"
             className="rounded-3xl p-1"
           />

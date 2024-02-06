@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import formatDate from "@/src/utils/DateFormat";
 const Card = ({ data }) => {
   return (
@@ -7,7 +7,8 @@ const Card = ({ data }) => {
         <Image
           src={data?.postImage}
           alt="Card Image"
-          fill
+          layout="fill"
+          objectFit="cover"
           className="rounded-2xl"
         />
       </div>

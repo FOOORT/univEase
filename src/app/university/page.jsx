@@ -9,19 +9,17 @@ import axios from "axios";
 
 const UniversityPage = () => {
   const [Unive, SetUniv] = useState({});
-  const [selectedUniversityId, setSelectedUniversityId] = useState(null);
   useEffect(() => {
     const id =
       typeof window !== "undefined"
         ? localStorage.getItem("universityId")
         : null;
-    setSelectedUniversityId(id);
-    if (selectedUniversityId) {
+
+    if (id) {
       const university = async () => {
-        console.log("Identity", selectedUniversityId);
         try {
           const university = await axios.get(
-            `https://univease.onrender.com/api/v1/university/read/${selectedUniversityId}`
+            `https://univease.onrender.com/api/v1/university/read/${id}`
           );
           const response = await university.data.data;
           console.log("Single university page Data", response);
@@ -34,7 +32,7 @@ const UniversityPage = () => {
       };
       university();
     }
-  }, [selectedUniversityId]);
+  }, []);
 
   return (
     <div className="flex flex-col gap-3 py-20 pt-[25vh]">
@@ -43,7 +41,7 @@ const UniversityPage = () => {
         title={Unive?.universityName}
       />
 
-      <ProgramsContainer selectedUniversityId={selectedUniversityId} />
+      <ProgramsContainer />
       <Count />
       <Blog />
       <Testimonial />
