@@ -7,7 +7,8 @@ const Card = ({ data }) => {
         <Image
           src={data?.postImage}
           alt="Card Image"
-          fill
+          layout="fill"
+          objectFit="cover"
           className="rounded-2xl"
         />
       </div>

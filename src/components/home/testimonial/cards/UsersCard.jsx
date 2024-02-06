@@ -9,7 +9,8 @@ const UsersCard = ({ item }) => {
             <Image
               src={item.profile}
               alt="Image profile"
-              fill
+              layout="fill"
+              objectFit="cover"
               className=" rounded-full "
             />
           </div>

@@ -6,13 +6,13 @@ const Welcome = ({ badge, title, desc }) => {
           {badge}
         </div>
 
-        <h1 className=" text-5xl lg:text-7xl font-black text-dark text-center w-full lg:w-[80%]">
+        <h1 className=" text-5xl lg:text-6xl font-black text-dark text-center w-full lg:w-[80%] ">
           {title}
         </h1>
         <p className="text-center text-sm font-medium w-full ">{desc}</p>
       </div>
     </section>
-  )
+  );
 };
 
 export default Welcome;

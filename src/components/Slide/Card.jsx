@@ -11,7 +11,8 @@ const Card = ({ data }) => {
       <div className="rounded-3xl relative shadow-2xl min-w-[30vh] h-[30vh] duration-150 hover:-translate-y-4 cursor-pointer">
         <img
           src={data?.universityLogo}
-          fill
+          layout="fill"
+          objectFit="cover"
           alt="Image Card"
           className="rounded-3xl h-full w-full"
         />

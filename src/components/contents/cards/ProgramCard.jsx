@@ -9,9 +9,8 @@ const ProgramCardCard = ({ data, activate }) => {
         <Image
           src={data?.programImage}
           alt="Card Image"
-          width={400}
-          height={400}
-          className={`h-full w-full`}
+          layout="fill"
+          objectFit="cover"
         />
       </div>
 
