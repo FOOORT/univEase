@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import formatDate from "@/src/utils/DateFormat";
 const Card = ({ data }) => {
   return (

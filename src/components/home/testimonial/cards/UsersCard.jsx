@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 const UsersCard = ({ item }) => {
   const isArray = Array.isArray(item) ? item : [];
   return (
@@ -10,7 +10,7 @@ const UsersCard = ({ item }) => {
               src={item.profile}
               alt="Image profile"
               layout="fill"
-              objectFit="cover"
+              objectfit="cover"
               className=" rounded-full "
             />
           </div>

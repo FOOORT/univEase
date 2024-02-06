@@ -12,7 +12,7 @@ const Card = ({ data }) => {
         <img
           src={data?.universityLogo}
           layout="fill"
-          objectFit="cover"
+          objectfit="cover"
           alt="Image Card"
           className="rounded-3xl h-full w-full"
         />

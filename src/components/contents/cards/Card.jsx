@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 const Card = ({ data }) => {
   return (
     <div className="flex flex-col gap-3 mt-3 scale-95 hover:scale-100 duration-100 active:scale-95">
