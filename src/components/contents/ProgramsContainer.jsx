@@ -27,8 +27,6 @@ const ProgramsContainer = () => {
     getProgram();
   }, []);
 
-
-
   return (
     <div className="py-20 flex flex-col gap-4 w-full">
       <h1 className="font-bold text-lg text-btn">Our exclusive Programs</h1>

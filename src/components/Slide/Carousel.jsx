@@ -24,12 +24,12 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="overflow-hidden text-nowrap absolute bottom-0 mb-6 duration-100">
-      <div className="relative flex gap-3 mt-12 animate-scroll ">
+    <div className="overflow-hidden text-nowrap absolute bottom-0 mb-6 duration-100 w-full">
+      <div className=" flex gap-3 mt-12 animate-scroll w-full">
         {cardData.length > 0 ? (
           cardData.map((data, index) => <Card key={index} data={data} />)
         ) : (
-          <div className=" absolute  flex justify-center items-center w-full">
+          <div className="flex justify-center items-center w-full">
             <Loading />
           </div>
         )}

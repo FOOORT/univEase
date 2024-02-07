@@ -43,7 +43,7 @@ const UniversityPage = () => {
 
       <ProgramsContainer />
       <Count />
-      <Blog />
+      <Blog type={"university"} />
       <Testimonial />
     </div>
   );

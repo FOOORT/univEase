@@ -1,5 +1,5 @@
 import FetchBlogCard from "@/src/components/home/blog/cards/FetchBlogCard";
-const Blog = () => {
+const Blog = ({type}) => {
   
   return (
     <div className="flex flex-col gap-4 w-full">
@@ -10,7 +10,7 @@ const Blog = () => {
         ourselves have developed several proprietary solutions. See for
         yourself!
       </p>
-      <FetchBlogCard />
+      <FetchBlogCard type={type} />
     </div>
   );
 };
