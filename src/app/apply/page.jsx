@@ -1,8 +1,31 @@
+"use client";
 import { FaLocationArrow } from "react-icons/fa6";
 import { BsGlobe } from "react-icons/bs";
 import Link from "next/link";
-import Tags from "@/src/components/static/Tags";
+import axios from "axios";
+import { useEffect, useState } from "react";
 const ApplyPage = () => {
+  const [program, SetProgram] = useState({});
+  let id =
+    typeof window !== "undefined" ? localStorage.getItem("programId") : null;
+  useEffect(() => {
+    const getProgram = async () => {
+      try {
+        const program = await axios.get(
+          `https://univease.onrender.com/api/v1/program/read/${id}`
+        );
+        const response = await program.data.data;
+        console.log("ProgramForm Data", response);
+        if (response) {
+          SetProgram(response);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProgram();
+  }, [id]);
+
   return (
     <form className="w-full  py-32 flex flex-col gap-4">
       <div className="border border-gray-300 rounded-2xl w-full px-8 py-4 flex flex-col gap-4">
@@ -26,26 +49,20 @@ const ApplyPage = () => {
       <div className="border border-gray-300 rounded-2xl w-full px-8 py-4 flex flex-col gap-4">
         <h3 className="text-btn text-md font-bold ">Programs Details</h3>
         <div className="flex flex-col gap-4">
-          <h2 className="text-xl fonta font-semibold">Computer Science</h2>
+          <h2 className="text-xl fonta font-semibold capitalize">
+            {program?.name}
+          </h2>
           <h2 className="flex gap-2 items-center">
             <FaLocationArrow />
-            <span className="text-sm font-medium ">Huye, Rwanda</span>
+            <span className="text-sm font-medium capitalize ">
+              {program?.campus?.city}, {program?.campus?.country}
+            </span>
           </h2>
-          <p>
-            in Computer Science bachelor’s program, you’ll explore the different
-            ways that humans interact with technology to glean a practical
-            understanding of how software affects our everyday lives. You’ll
-            build foundations in the design, development, and implementation of
-            software-based solutions for business, entertainment, and consumer
-            markets. Project and portfolio courses integrated throughout the
-            program provide you with relevant learning opportunities, and career
-            development modules help you build professional skills along the
-            way.
-          </p>
+          <p>{program?.degreeOverview}</p>
           <div className="flex flex-col gap-2">
             <p className="flex items-center gap-2 text-btn text-sm font-bold ">
               <BsGlobe />
-              <Link href="/program" className="italic">
+              <Link href="/university" className="italic">
                 View Course Posting
               </Link>
             </p>
@@ -53,12 +70,12 @@ const ApplyPage = () => {
           </div>
           <h3 className="text-btn text-md font-bold ">Programs Tags</h3>
           <div className="flex items-center gap-2">
-            {Tags.map((tag, index) => (
+            {program?.tags?.map((tag, index) => (
               <p
                 key={index}
                 className={`border border-dark cursor-pointer px-4 py-2 rounded-full flex items-center text-nowrap overflow-hidden justify-center gap-3 scale-95 hover:scale-100 active:scale-95 duration-100`}
               >
-                {tag?.title}
+                {tag ? tag : tag}
               </p>
             ))}
           </div>
@@ -75,9 +92,9 @@ const ApplyPage = () => {
             className="px-3 rounded-xl outline-none border w-full md:w-1/4 py-2 border-gray-300"
           >
             <option>Select time you would start?</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+            <option>March in Tech</option>
+            <option>Jully in Tech</option>
+            <option>December in Tech</option>
           </select>
         </div>
       </div>
@@ -91,12 +108,13 @@ const ApplyPage = () => {
               id=""
               cols="30"
               rows="10"
+              placeholder="Add you cover letter"
               className=" outline-none border border-gray-300 rounded-xl px-3 py-3"
             ></textarea>
           </div>
           <small className="italic text-sm font-bold">Attachment</small>
           {/* here Add me input where i can drag and drop file */}
-          <div className=" border border-dashed border-btn relative cursor-pointer flex items-center justify-center py-12 rounded-xl">
+          <div className=" border border-dashed border-btn relative !cursor-pointer flex items-center justify-center py-12 rounded-xl">
             <h2>
               Drag or{" "}
               <span className="text-btn text-sm font-bold ">
@@ -104,7 +122,10 @@ const ApplyPage = () => {
               </span>{" "}
               files
             </h2>
-            <input type="file" className="w-full h-full absolute " />
+            <input
+              type="file"
+              className="w-full h-full absolute opacity-0 !cursor-pointer"
+            />
           </div>
           <p>
             You may attach up to 10 files under the size of{" "}

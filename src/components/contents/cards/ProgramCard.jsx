@@ -1,9 +1,15 @@
 import Image from "next/legacy/image";
 const ProgramCardCard = ({ data, activate }) => {
+  const handleUniversityClick = (id) => {
+    localStorage.setItem("programId", id);
+  };
   return (
     <div
       className="flex flex-col gap-3 mt-3 scale-95 hover:scale-100 duration-100 active:scale-95"
-      onClick={() => activate(true)}
+      onClick={() => {
+        handleUniversityClick(data._id);
+        activate(true);
+      }}
     >
       <div className="relative h-72 xl:h-64 rounded-2xl overflow-hidden flex justify-center items-center">
         <Image
