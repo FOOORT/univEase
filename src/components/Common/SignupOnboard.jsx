@@ -17,7 +17,7 @@ const SignupOnboard = ({
 }) => {
   return (
     <div
-      className="h-screen absolute top-0 left-0 w-full bg-gradient-to-br from-dark to-dark/10 text-dark flex items-center justify-center "
+      className="h-screen absolute top-0 left-0 w-full bg-gray-900/40 text-dark flex items-center justify-center "
       // onClick={() => setOpen(false)}
     >
       <div

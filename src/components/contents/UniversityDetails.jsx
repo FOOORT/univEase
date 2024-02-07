@@ -5,20 +5,22 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { IoCopyOutline } from "react-icons/io5";
 import Button from "../Common/Button";
 import { HiOutlineHeart } from "react-icons/hi2";
+import { FaLocationArrow } from "react-icons/fa";
+import { BsGlobe } from "react-icons/bs";
 import axios from "axios";
 
-const ProgramDetails = ({ activate }) => {
+const UniversityDetails = ({ activate }) => {
   const [program, SetProgram] = useState({});
   let id =
-    typeof window !== "undefined" ? localStorage.getItem("programId") : null;
+    typeof window !== "undefined" ? localStorage.getItem("universityId") : null;
   useEffect(() => {
-    const getProgram = async () => {
+    const getUniversity = async () => {
       try {
         const program = await axios.get(
-          `https://univease.onrender.com/api/v1/program/read/${id}`
+          `https://univease.onrender.com/api/v1/university/read/${id}`
         );
         const response = await program.data.data;
-        console.log("ProgramForm Data", response);
+        console.log("Unive Data", response);
         if (response) {
           SetProgram(response);
         }
@@ -26,7 +28,7 @@ const ProgramDetails = ({ activate }) => {
         console.log(error);
       }
     };
-    getProgram();
+    getUniversity();
   }, [id]);
 
   return (
@@ -48,100 +50,71 @@ const ProgramDetails = ({ activate }) => {
 
         <div className="w-full flex items-start gap-4 mt-8">
           <div className="w-[60%] flex flex-col gap-4">
-            <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl">
+            <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl flex flex-col gap-6">
               <h1 className="fonta capitalize  text-nowrap ">
-                {program?.name}
+                {program?.universityName}
               </h1>
-              <h4 className=" text-sm mt-4 font-bold">
-                “Connected” is just the beginning.
-              </h4>
+              <small className="text-sm capitalize italic ">
+                posted last 10 month Ago
+              </small>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <h2 className="flex gap-2 items-center">
+                  <FaLocationArrow className="text-sm " />
+                  <span className="text-sm font-medium capitalize ">
+                    {program?.city}, {program?.country}
+                  </span>
+                </h2>
+                <p className="flex items-center gap-2 text-btn text-sm font-medium ">
+                  <BsGlobe />
+                  <p className="italic">Website</p>
+                </p>
+              </div>
             </div>
+
             <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl flex flex-col gap-4">
               <h2 className="text-blue-500 text-lg font-medium">
-                Program Details
+                University Mission
               </h2>
-              <li className="text-left text-sm p-3">
-                {program?.degreeOverview}
-              </li>
-            </div>
-            <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl flex flex-col gap-4">
-              <h2 className="text-blue-500 text-lg font-medium">
-                Program at Grance
-              </h2>
-
-              <h3 className="font-bold text-base">Ways to learn</h3>
-              <li className="flex items-center gap-2 text-sm">
-                <RiVerifiedBadgeFill />
-                {program.programExtension?.wayTolearn[0]}
-              </li>
-              {program.programExtension?.wayTolearn[1] ? (
-                <li className="flex items-center gap-2 text-sm">
-                  <RiVerifiedBadgeFill />
-                  {program.programExtension?.wayTolearn[1]}
-                </li>
-              ) : null}
-
-              <h3 className="font-bold text-base">Related Program</h3>
-              <li className="flex items-center gap-2 text-sm border border-slate-200 rounded-md px-4 py-2 text-slate-500 hover:text-blue-500 duration-100 cursor-pointer">
-                {program.programExtension?.related?.map((relate) => (
-                  <>
-                    {program?.name} Bachelor's Completion | {relate}
-                  </>
-                ))}
-                <TfiArrowTopRight />
-              </li>
+              <p className="text-sm">
+                {program?.mission ||
+                  "University of Rwanda is a public collegiate, multi campus university based in Kigali, Rwanda. Formed in 2013 through the merger of previously independent education institutions, the University of Rwanda is the largest education institution in Rwanda."}
+              </p>
             </div>
 
             <div className="flex gap-4 items-center mt-8">
               <Button
-                path="/apply"
+                path="/university"
                 icon={<TfiArrowTopRight />}
-                title="Apply now"
+                title="Vist university"
                 classes="text"
-              />
-              <Button
-                path="/apply"
-                icon={<HiOutlineHeart />}
-                title="Save"
-                classes="!bg-white !text-dark border border-slate-500 text-slate-500"
               />
             </div>
           </div>
           <div className="w-[40%] flex flex-col gap-4">
             <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl flex flex-col gap-4">
               <h2 className="text-blue-500 text-lg font-medium">
-                Tuition and Fees
+                About University
               </h2>
               <li className="flex items-center gap-2 text-sm">
                 <RiVerifiedBadgeFill />
-                Registration ${program?.tuitionAndFees?.registration}
+                Email: {program?.email}
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <RiVerifiedBadgeFill />
-                Scholarship {program?.tuitionAndFees?.scholarship}
+                Phone number {program?.fone || "+250 785 161 508"}
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <RiVerifiedBadgeFill />
-                Hostel {program?.tuitionAndFees?.hostel}
+                Location: {program?.country}
               </li>
             </div>
+
             <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl flex flex-col gap-4">
-              <h2 className="text-blue-500 text-lg font-medium">
-                Degree Level
-              </h2>
-              <li className="flex items-center gap-2 text-sm">
-                <RiVerifiedBadgeFill />
-                {program?.degree}
-              </li>
-            </div>
-            <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl flex flex-col gap-4">
-              <h2 className="text-blue-500 text-lg font-medium">
-                Included Components
-              </h2>
+              <h2 className="text-blue-500 text-lg font-medium">Programs</h2>
               {program?.components?.map((component) => (
                 <li className="flex items-center gap-2 text-sm">
                   <RiVerifiedBadgeFill />
-                  {component}
+                  {component || "Law"}
                 </li>
               ))}
             </div>
@@ -159,4 +132,4 @@ const ProgramDetails = ({ activate }) => {
   );
 };
 
-export default ProgramDetails;
+export default UniversityDetails;

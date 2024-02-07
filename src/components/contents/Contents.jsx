@@ -1,11 +1,15 @@
 "use client";
 import Card from "./cards/Card";
-import Link from "next/link";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loading from "@/src/app/loading";
+import UniversityDetails from "./UniversityDetails";
 const Contents = () => {
   const [datas, setdatas] = useState([]);
+  const [modal, setmodal] = useState(false);
+  const handlemodal = () => {
+    setmodal(!modal);
+  };
   useEffect(() => {
     const getUniversity = async () => {
       try {
@@ -39,12 +43,15 @@ const Contents = () => {
                 index === 0 || index === 4 ? "lg:col-span-2 " : "col-span-1"
               }`}
             >
-              <Link
-                href={`/university/`}
-                onClick={() => handleUniversityClick(item._id)}
+              <article
+                // href={`/university/`}
+                onClick={() => {
+                  handlemodal();
+                  handleUniversityClick(item._id);
+                }}
               >
                 <Card data={item} />
-              </Link>
+              </article>
             </div>
           ))
         ) : (
@@ -53,6 +60,7 @@ const Contents = () => {
           </div>
         )}
       </div>
+      {modal && <UniversityDetails activate={setmodal} />}
     </div>
   );
 };
