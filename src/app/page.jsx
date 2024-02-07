@@ -12,7 +12,7 @@ export default function Home() {
       <About />
       <Count />
       <Contents />
-      <Blog />
+      <Blog type={'all'} />
       <Testimonial />
     </main>
   );

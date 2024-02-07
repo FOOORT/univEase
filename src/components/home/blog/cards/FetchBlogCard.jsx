@@ -1,19 +1,24 @@
-// import Card from "@/src/components/home/blog/cards/Card";
 "use client";
 import Link from "next/link";
 import Card from "./Card";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "@/src/app/loading";
-const FetchBlogCard = () => {
+const FetchBlogCard = ({ type }) => {
   const [blogData, SetblogData] = useState([]);
+  const id =
+    typeof window !== "undefined" ? localStorage.getItem("universityId") : null;
 
   useEffect(() => {
+    let url;
+    if (type === "all") {
+      url = "https://univease.onrender.com/api/v1/blog/read";
+    } else {
+      url = `https://univease.onrender.com/api/v1/blog/${id}`;
+    }
     const getBlog = async () => {
       try {
-        const blog = await axios.get(
-          "https://univease.onrender.com/api/v1/blog/read"
-        );
+        const blog = await axios.get(url);
         const response = await blog.data.data;
         console.log("Blog Data", response);
         if (response) {
