@@ -36,7 +36,7 @@ const Account = () => {
           reset={modalType === "signin" ? "reset Password" : ""}
           inputs={modalType === "signin"}
           buttons={modalType === "signup"}
-          height={modalType === "signin" ? "80vh" : ""}
+          height={modalType === "signin" || "signup" ? "80vh" : ""}
           setOpen={setIsSignupOnboardOpen}
         />
       )}
