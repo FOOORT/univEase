@@ -4,7 +4,7 @@ import { TfiArrowTopRight } from "react-icons/tfi";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { IoCopyOutline } from "react-icons/io5";
 import Button from "../Common/Button";
-import { HiOutlineHeart } from "react-icons/hi2";
+
 import { FaLocationArrow } from "react-icons/fa";
 import { BsGlobe } from "react-icons/bs";
 import axios from "axios";
@@ -15,10 +15,9 @@ const UniversityDetails = ({ activate }) => {
     typeof window !== "undefined" ? localStorage.getItem("universityId") : null;
   useEffect(() => {
     const getUniversity = async () => {
+      const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
       try {
-        const program = await axios.get(
-          `https://univease.onrender.com/api/v1/university/read/${id}`
-        );
+        const program = await axios.get(`${apiUrl}read/${id}`);
         const response = await program.data.data;
         console.log("Unive Data", response);
         if (response) {
