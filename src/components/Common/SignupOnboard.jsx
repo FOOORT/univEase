@@ -21,7 +21,7 @@ const SignupOnboard = ({
       // onClick={() => setOpen(false)}
     >
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 bg-bgColor gap-3 rounded-3xl w-1/2 text-dark ${
+        className={`grid grid-cols-1 md:grid-cols-2 bg-bgColor gap-3 rounded-[2.7rem] w-2/3 h-[85vh] text-dark ${
           height ? `h-${height}` : ""
         }`}
       >
@@ -39,12 +39,12 @@ const SignupOnboard = ({
                 <input
                   type="text"
                   placeholder="Email or Username"
-                  className="py-2 px-4 rounded-xl outline-none border border-dark"
+                  className="py-3 px-4 rounded-xl outline-none border border-dark"
                 />
                 <input
                   type="password"
                   placeholder="Password"
-                  className="py-2 px-4 rounded-xl outline-none border border-dark "
+                  className="py-3 px-4 text-dark rounded-xl outline-none border border-dark "
                 />
                 <Button
                   title="Continue"
@@ -61,12 +61,14 @@ const SignupOnboard = ({
 
                 <div className="flex items-center gap-1">
                   <Button
-                    icon={<FaGithub />}
-                    classes="bg-dark  px-1 !text-white w-full rounded-xl text-nowrap !scale-100"
+                    icon={<FaGithub className="text-xs" />}
+                    title={`Continue with Github`}
+                    classes="bg-dark text-xs  !text-white w-full rounded-xl text-nowrap !scale-95 hover:!scale-100"
                   />
                   <Button
-                    icon={<SiGmail />}
-                    classes="bg-dark  !text-white w-full rounded-xl  text-nowrap !scale-100"
+                    icon={<SiGmail className="text-xs" />}
+                    title={`Continue with Email`}
+                    classes="bg-dark  !text-white w-full rounded-xl !text-xs  text-nowrap !scale-95 hover:!scale-100"
                   />
                 </div>
                 <h5 className="text-sm font-medium ">
@@ -110,7 +112,7 @@ const SignupOnboard = ({
             layout="fill"
             objectfit="cover"
             alt="Ifoto"
-            className="rounded-3xl p-1"
+            className="rounded-[2.7rem] p-1"
           />
         </div>
       </div>
