@@ -17,7 +17,7 @@ const UniversityDetails = ({ activate }) => {
     const getUniversity = async () => {
       const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
       try {
-        const program = await axios.get(`${apiUrl}read/${id}`);
+        const program = await axios.get(`${apiUrl}university/read/${id}`);
         const response = await program.data.data;
         console.log("Unive Data", response);
         if (response) {
