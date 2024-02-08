@@ -8,13 +8,13 @@ const FetchBlogCard = ({ type }) => {
   const [blogData, SetblogData] = useState([]);
   const id =
     typeof window !== "undefined" ? localStorage.getItem("universityId") : null;
-
+  const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
   useEffect(() => {
     let url;
     if (type === "all") {
-      url = "https://univease.onrender.com/api/v1/blog/read";
+      url = `${apiUrl}blog/read`;
     } else {
-      url = `https://univease.onrender.com/api/v1/blog/${id}`;
+      url = `${apiUrl}blog/${id}`;
     }
     const getBlog = async () => {
       try {

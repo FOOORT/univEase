@@ -11,10 +11,9 @@ const ProgramsContainer = () => {
     typeof window !== "undefined" ? localStorage.getItem("universityId") : null;
   useEffect(() => {
     const getProgram = async () => {
+      const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
       try {
-        const program = await axios.get(
-          `https://univease.onrender.com/api/v1/program/${id}`
-        );
+        const program = await axios.get(`${apiUrl}program/${id}`);
         const response = await program.data.data;
         console.log("Program Data", response);
         if (response) {

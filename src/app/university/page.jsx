@@ -17,10 +17,9 @@ const UniversityPage = () => {
 
     if (id) {
       const university = async () => {
+        const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
         try {
-          const university = await axios.get(
-            `https://univease.onrender.com/api/v1/university/read/${id}`
-          );
+          const university = await axios.get(`${apiUrl}university/read/${id}`);
           const response = await university.data.data;
           console.log("Single university page Data", response);
           if (response) {

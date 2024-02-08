@@ -13,4 +13,6 @@ yarn dev
 pnpm dev
 # or
 bun dev
+# backend link
+NEXT_PUBLIC_BACKEND_API_URL = https://example.com/api/v1/
 ```
