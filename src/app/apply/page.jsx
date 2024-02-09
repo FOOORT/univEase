@@ -4,13 +4,25 @@ import { BsGlobe } from "react-icons/bs";
 import Link from "next/link";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import HashLoader from "react-spinners/HashLoader";
+import { useFormik } from "formik";
 const ApplyPage = () => {
   const [program, SetProgram] = useState({});
+  const [loading, setLoading] = useState(false);
   let id =
     typeof window !== "undefined" ? localStorage.getItem("programId") : null;
+  let token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
   useEffect(() => {
     const getProgram = async () => {
-      const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
       try {
         const program = await axios.get(`${apiUrl}program/read/${id}`);
         const response = await program.data.data;
@@ -25,8 +37,65 @@ const ApplyPage = () => {
     getProgram();
   }, [id]);
 
+  const apply = async () => {
+    try {
+      if (formik.isValid) {
+        const formData = {
+          startingDate: formik.values.startingDate,
+          coverLetter: formik.values.coverLetter,
+          attachment: formik.values.attachment,
+        };
+        setLoading(true);
+        const applicationData = await axios.post(
+          `${apiUrl}applications/apply/${id}`,
+          formData,
+          config
+        );
+        if (applicationData) {
+          formik.resetForm();
+          setLoading(false);
+        }
+      }
+    } catch (error) {
+      setLoading(false);
+      console.log("Fail to Make Application ", error);
+    }
+  };
+
+  const initialValues = {
+    startingDate: "",
+    coverLetter: "",
+    attachment: "",
+  };
+
+  const validate = (values) => {
+    let errors = {};
+    if (
+      !values.startingDate ||
+      values.startingDate === "Select time you would start?"
+    ) {
+      errors.startingDate = "Take Required";
+    }
+    if (!values.coverLetter) {
+      errors.coverLetter = "coverLetter Required";
+    }
+    if (!values.attachment) {
+      errors.attachment = "attachment Required";
+    }
+    return errors;
+  };
+
+  const formik = useFormik({
+    validate,
+    initialValues,
+    onSubmit: apply,
+  });
+
   return (
-    <form className="w-full  py-32 flex flex-col gap-4">
+    <form
+      className="w-full  py-32 flex flex-col gap-4"
+      onSubmit={formik.handleSubmit}
+    >
       <div className="border border-gray-300 rounded-2xl w-full px-8 py-4 flex flex-col gap-4">
         <h1 className="text-btn text-md font-bold ">Apply For Programs </h1>
         <div className="flex flex-col gap-1">
@@ -86,9 +155,16 @@ const ApplyPage = () => {
           <h3 className="text-sm  text-btn  font-bold ">
             When you would start?
           </h3>
+          {formik.touched.startingDate && formik.errors.startingDate ? (
+            <div className=" text-sm text-red-800 font-extralight ">
+              {formik.errors.startingDate}
+            </div>
+          ) : null}
           <select
-            name=""
-            id=""
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.startingDate}
+            id="startingDate"
             className="px-3 rounded-xl outline-none border w-full md:w-1/4 py-2 border-gray-300"
           >
             <option>Select time you would start?</option>
@@ -103,9 +179,17 @@ const ApplyPage = () => {
           <h3 className="text-sm  text-btn  font-bold ">Additional Details</h3>
           <div className="flex flex-col gap-1">
             <small className="italic text-sm font-bold">cover letter</small>
+            {formik.touched.coverLetter && formik.errors.coverLetter ? (
+              <div className=" text-sm text-red-800 font-extralight ">
+                {formik.errors.coverLetter}
+              </div>
+            ) : null}
             <textarea
               name=""
-              id=""
+              id="coverLetter"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.coverLetter}
               cols="30"
               rows="10"
               placeholder="Add you cover letter"
@@ -113,7 +197,11 @@ const ApplyPage = () => {
             ></textarea>
           </div>
           <small className="italic text-sm font-bold">Attachment</small>
-          {/* here Add me input where i can drag and drop file */}
+          {formik.touched.attachment && formik.errors.attachment ? (
+            <div className=" text-sm text-red-800 font-extralight ">
+              {formik.errors.attachment}
+            </div>
+          ) : null}
           <div className=" border border-dashed border-btn relative !cursor-pointer flex items-center justify-center py-12 rounded-xl">
             <h2>
               Drag or{" "}
@@ -123,6 +211,10 @@ const ApplyPage = () => {
               files
             </h2>
             <input
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.attachment}
+              id="attachment"
               type="file"
               className="w-full h-full absolute opacity-0 !cursor-pointer"
             />
@@ -138,9 +230,15 @@ const ApplyPage = () => {
       </div>
       <div className="flex items-center gap-2">
         <button
-          className={`bg-btn cursor-pointer px-4 py-2 text-white rounded-full flex items-center text-nowrap overflow-hidden justify-center gap-3 scale-95 hover:scale-100 active:scale-95 duration-100`}
+          onClick={() => formik.submitForm()}
+          disabled={loading}
+          className={`bg-btn w-40 border border-btn cursor-pointer px-4 py-2 text-white rounded-full flex items-center text-nowrap overflow-hidden justify-center gap-3 scale-95 hover:scale-100 active:scale-95 duration-100`}
         >
-          Apply Now
+          {loading ? (
+            <HashLoader size={15} color={"#ffffff"} loading={loading} />
+          ) : (
+            "Apply Now"
+          )}
         </button>
         <button
           className={`border border-dark cursor-pointer px-4 py-2 rounded-full flex items-center text-nowrap overflow-hidden justify-center gap-3 scale-95 hover:scale-100 active:scale-95 duration-100`}

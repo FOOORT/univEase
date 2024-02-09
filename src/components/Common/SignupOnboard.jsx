@@ -1,10 +1,14 @@
+"use client";
 import { IoIosClose } from "react-icons/io";
 import { IoIosCheckmark } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import Button from "../Common/Button";
 import Image from "next/image";
-
+import { useFormik } from "formik";
+import axios from "axios";
+import { useState } from "react";
+import HashLoader from "react-spinners/HashLoader";
 const SignupOnboard = ({
   setOpen,
   title,
@@ -15,6 +19,72 @@ const SignupOnboard = ({
   buttons,
   height,
 }) => {
+  const [loading, setLoading] = useState(false);
+  const signIn = async () => {
+    const isUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+    try {
+      if (formik.isValid) {
+        const formData = {
+          email: formik.values.email,
+          username: formik.values.username,
+          password: formik.values.password,
+        };
+        setLoading(true);
+        const loginData = await axios.post(`${isUrl}user/auth`, formData);
+        if (loginData) {
+          formik.resetForm();
+          setLoading(false);
+          localStorage.setItem("token", loginData.data.token);
+        }
+      }
+    } catch (error) {
+      setLoading(false);
+      if (error.response) {
+        if (error.response.status === 401) {
+          // Unauthorized - Incorrect password
+          formik.setErrors({
+            email: "Incorect Username or Password.",
+          });
+        } else if (error.response.status === 422) {
+          // Unprocessable Entity - Validation error (e.g., incorrect username)
+          formik.setErrors({
+            email: "Incorect Username or Password",
+          });
+        } else {
+          // Other errors
+          console.log("Failed To Login", error);
+        }
+      } else {
+        console.log("Failed To Login", error);
+      }
+    }
+  };
+  const initialValues = {
+    email: "",
+    password: "",
+    // username: "",
+  };
+  const validate = (values) => {
+    let errors = {};
+    if (!values.password) {
+      errors.password = "Password Required";
+    }
+    // if (!values.username) {
+    //   errors.username = "Username Required";
+    // }
+
+    if (!values.email) {
+      errors.email = "Email Required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = "Invalid email address";
+    }
+    return errors;
+  };
+  const formik = useFormik({
+    validate,
+    initialValues,
+    onSubmit: signIn,
+  });
   return (
     <div
       className="h-screen absolute top-0 left-0 w-full bg-gray-900/40 text-dark flex items-center justify-center "
@@ -35,21 +105,64 @@ const SignupOnboard = ({
           <div className="flex flex-col gap-3 !w-full">
             <h2 className="text-md font-bold mt-1">{title ? title : title}</h2>
             {inputs ? (
-              <form className="flex flex-col gap-2 !w-full">
+              <form
+                onSubmit={formik.handleSubmit}
+                className="flex flex-col gap-2 !w-full"
+              >
+                {formik.touched.email && formik.errors.email ? (
+                  <div className=" text-sm text-red-800 font-extralight ">
+                    {formik.errors.email}
+                  </div>
+                ) : null}
                 <input
                   type="text"
+                  id="email"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
                   placeholder="Email or Username"
-                  className="py-3 px-4 rounded-xl outline-none border border-dark"
+                  className="py-3 px-3 border border-gray-400 rounded-xl outline-none active:outline-none text-sm"
                 />
+                {/* {formik.touched.username && formik.errors.username ? (
+                  <div className=" text-sm text-red-800 font-extralight ">
+                    {formik.errors.username}
+                  </div>
+                ) : null}
                 <input
+                  type="text"
+                  id="username"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.username}
+                  placeholder="Username"
+                  className="py-3 px-3 border border-gray-400 rounded-xl outline-none active:outline-none text-sm"
+                /> */}
+                {formik.touched.password && formik.errors.password ? (
+                  <div className=" text-sm text-red-800 font-extralight ">
+                    {formik.errors.password}
+                  </div>
+                ) : null}
+                <input
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
                   type="password"
-                  placeholder="Password"
-                  className="py-3 px-4 text-dark rounded-xl outline-none border border-dark "
+                  id="password"
+                  placeholder="****************"
+                  className="py-3 px-3 border border-gray-400 rounded-xl outline-none active:outline-none text-sm"
                 />
-                <Button
-                  title="Continue"
-                  classes="bg-dark  !text-white w-full rounded-xl !scale-100"
-                />
+                <button
+                  onClick={() => formik.submitForm()}
+                  disabled={loading}
+                  type="submit"
+                  className="bg-dark py-3 font-bold  !text-white w-full rounded-xl !scale-100 flex items-center justify-center"
+                >
+                  {loading ? (
+                    <HashLoader size={15} color={"#ffffff"} loading={loading} />
+                  ) : (
+                    "Continue"
+                  )}
+                </button>
                 <div className="flex justify-between">
                   <div className="py-[1px] px-[1px] rounded-full border border-dark flex items-center justify-center ">
                     <IoIosCheckmark />
