@@ -32,12 +32,12 @@ const Card = ({ data }) => {
               {data?.universityName}
             </h2>
             <div className="flex items-center text-bgColor  gap-4">
-              {data?.programsOffered.map((type, index) => (
+              {data?.program[0]?.tags?.map((type, index) => (
                 <span
                   key={index}
                   className="border border-white px-3 py-2 text-xs font-medium rounded-full hover:bg-white hover:text-dark cursor-pointer scale-105 duration-150 active:scale-95"
                 >
-                  {type?.classTypes}
+                  {type}
                 </span>
               ))}
             </div>
