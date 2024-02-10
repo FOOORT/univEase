@@ -74,10 +74,7 @@ const UniversityDetails = ({ activate }) => {
               <h2 className="text-blue-500 text-lg font-medium">
                 University Mission
               </h2>
-              <p className="text-sm">
-                {program?.mission ||
-                  "University of Rwanda is a public collegiate, multi campus university based in Kigali, Rwanda. Formed in 2013 through the merger of previously independent education institutions, the University of Rwanda is the largest education institution in Rwanda."}
-              </p>
+              <p className="text-sm">{program?.mission}</p>
             </div>
 
             <div className="flex gap-4 items-center mt-8">
@@ -100,7 +97,7 @@ const UniversityDetails = ({ activate }) => {
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <RiVerifiedBadgeFill />
-                Phone number {program?.fone || "+250 785 161 508"}
+                Phone number: {program?.phoneNumbers}
               </li>
               <li className="flex items-center gap-2 text-sm">
                 <RiVerifiedBadgeFill />
@@ -110,10 +107,10 @@ const UniversityDetails = ({ activate }) => {
 
             <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl flex flex-col gap-4">
               <h2 className="text-blue-500 text-lg font-medium">Programs</h2>
-              {program?.components?.map((component) => (
+              {program?.program?.map((component) => (
                 <li className="flex items-center gap-2 text-sm">
                   <RiVerifiedBadgeFill />
-                  {component || "Law"}
+                  {component.name}
                 </li>
               ))}
             </div>
