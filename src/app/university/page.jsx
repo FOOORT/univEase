@@ -6,7 +6,8 @@ import Welcome from "@/src/components/Common/Welcome";
 import ProgramsContainer from "@/src/components/contents/ProgramsContainer";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import MissionVission from "../../components/Common/MissionVission";
+import Loading from "../loading";
 const UniversityPage = () => {
   const [Unive, SetUniv] = useState({});
   useEffect(() => {
@@ -34,17 +35,29 @@ const UniversityPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-3 py-20 pt-[25vh]">
-      <Welcome
-        badge={`${Unive?.universityName} is a ${Unive?.universityType} collegiate`}
-        title={Unive?.universityName}
-      />
-
-      <ProgramsContainer />
-      <Count />
-      <Blog type={"university"} />
-      <Testimonial />
-    </div>
+    <>
+      {Unive.universityName?.length > 0 ? (
+        <div className="flex flex-col gap-3 py-20 pt-[25vh]">
+          <Welcome
+            badge={`${Unive?.universityName} is a ${Unive?.universityType} collegiate`}
+            title={Unive?.universityName}
+          />
+          {Unive.mission?.length > 0 ? (
+            <MissionVission data={Unive} key={Unive} />
+          ) : (
+            <Loading />
+          )}
+          <ProgramsContainer />
+          <Count />
+          <Blog type={"university"} />
+          <Testimonial />
+        </div>
+      ) : (
+        <div className="!h-screen flex justify-center items-center  ">
+          <Loading />
+        </div>
+      )}
+    </>
   );
 };
 

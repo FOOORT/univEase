@@ -2,7 +2,6 @@
 import Link from "next/link";
 import NavLinks from "@/src/components/Navbar/NavLinks/NavLinks";
 import Acount from "@/src/components/Navbar/acount/Acount";
-import { useEffect, useRef } from "react";
 const NavBar = () => {
   return (
     <header className="lg:px-20 px-7 flex z-50 justify-between items-center py-2 fixed w-screen ">
