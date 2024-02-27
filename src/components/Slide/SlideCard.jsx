@@ -150,7 +150,7 @@ const SlideCard = () => {
       }}
     >
       {cardData.map((item, index) => (
-        <SwiperSlide className="lg:mr-28 mr-3">
+        <SwiperSlide className="lg:mr-28 mr-3" key={index}>
           <Link href="/university">
             <Card key={index} data={item} />
           </Link>

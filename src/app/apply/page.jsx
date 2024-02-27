@@ -12,8 +12,8 @@ const ApplyPage = () => {
   const [program, SetProgram] = useState({});
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
-  let id =
-    typeof window !== "undefined" ? localStorage.getItem("programId") : null;
+  // let id =
+  //   typeof window !== "undefined" ? localStorage.getItem("programId") : null;
   let token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
@@ -23,13 +23,18 @@ const ApplyPage = () => {
     },
   };
 
-  const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
   useEffect(() => {
     const getProgram = async () => {
+        let id =
+          typeof window !== "undefined"
+            ? localStorage.getItem("programId")
+            : null;
       try {
-        const program = await axios.get(`${apiUrl}program/read/${id}`);
+        const program = await axios.get(
+          `${process.env.NEXT_PUBLIC_BACKEND_API_URL}program/read/${id}`
+        );
         const response = await program.data.data;
-        console.log("ProgramForm Data", response);
+  
         if (response) {
           SetProgram(response);
         }
@@ -38,7 +43,7 @@ const ApplyPage = () => {
       }
     };
     getProgram();
-  }, [id]);
+  }, []);
 
   const apply = async () => {
     try {
@@ -51,8 +56,12 @@ const ApplyPage = () => {
         }
 
         setLoading(true);
+          let id =
+            typeof window !== "undefined"
+              ? localStorage.getItem("programId")
+              : null;
         const applicationData = await axios.post(
-          `${apiUrl}applications/apply/${id}`,
+          `${process.env.NEXT_PUBLIC_BACKEND_API_URL}applications/apply/${id}`,
           formData,
           config
         );

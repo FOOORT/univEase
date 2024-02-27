@@ -6,15 +6,17 @@ import axios from "axios";
 import Loading from "@/src/app/loading";
 const FetchBlogCard = ({ type }) => {
   const [blogData, SetblogData] = useState([]);
-  const id =
-    typeof window !== "undefined" ? localStorage.getItem("universityId") : null;
-  const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
   useEffect(() => {
+    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
     let url;
     if (type === "all") {
       url = `${apiUrl}blog/read`;
     } else {
-      url = `${apiUrl}blog/${id}`;
+     const id =
+       typeof window !== "undefined"
+         ? localStorage.getItem("universityId")
+         : null;
+     url = `${apiUrl}blog/${id}`;
     }
     const getBlog = async () => {
       try {
@@ -29,7 +31,7 @@ const FetchBlogCard = ({ type }) => {
       }
     };
     getBlog();
-  }, []);
+  }, [type]);
   return (
     <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
       {blogData.length > 0 ? (

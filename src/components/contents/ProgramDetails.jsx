@@ -83,9 +83,9 @@ const ProgramDetails = ({ activate }) => {
               <h3 className="font-bold text-base">Related Program</h3>
               <li className="flex items-center gap-2 text-sm border border-slate-200 rounded-md px-4 py-2 text-slate-500 hover:text-blue-500 duration-100 cursor-pointer">
                 {program.programExtension?.related?.map((relate) => (
-                  <>
-                    {program?.name} Bachelor's Completion | {relate}
-                  </>
+                  <small key={relate}>
+                    {program?.name} Bachelors Completion | {relate}
+                  </small>
                 ))}
                 <TfiArrowTopRight />
               </li>
@@ -138,7 +138,7 @@ const ProgramDetails = ({ activate }) => {
                 Included Components
               </h2>
               {program?.components?.map((component) => (
-                <li className="flex items-center gap-2 text-sm">
+                <li key={component} className="flex items-center gap-2 text-sm">
                   <RiVerifiedBadgeFill />
                   {component}
                 </li>
