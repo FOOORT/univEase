@@ -21,8 +21,11 @@ const ProgramCardCard = ({ data, activate }) => {
       </div>
 
       <div className="flex items-center text-bgColor  gap-2">
-        {data.tags.map((tag) => (
-          <span className="border border-black px-3 py-2 text-xs font-medium rounded-full text-dark hover:text-dark cursor-pointer scale-105 duration-150 active:scale-95">
+        {data.tags.map((tag, index) => (
+          <span
+            key={index}
+            className="border border-black px-3 py-2 text-xs font-medium rounded-full text-dark hover:text-dark cursor-pointer scale-105 duration-150 active:scale-95"
+          >
             {tag}
           </span>
         ))}

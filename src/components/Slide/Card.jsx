@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-
+import Image from  "next/image"
 const Card = ({ data }) => {
   const handleUniversityClick = (id) => {
     localStorage.setItem("universityId", id);
@@ -9,7 +9,7 @@ const Card = ({ data }) => {
   return (
     <Link href="/university" onClick={() => handleUniversityClick(data._id)}>
       <div className="rounded-3xl relative shadow-2xl min-w-[30vh] h-[30vh] duration-150 hover:-translate-y-4 cursor-pointer">
-        <img
+        <Image
           src={data?.universityLogo}
           layout="fill"
           objectfit="cover"

@@ -7,9 +7,9 @@ import Loading from "@/src/app/loading";
 const ProgramsContainer = () => {
   const [program, SetProgram] = useState([]);
   const [setdatas, setProgram] = useState(false);
-  const id =
-    typeof window !== "undefined" ? localStorage.getItem("universityId") : null;
   useEffect(() => {
+    const id =
+      typeof window !== "undefined" ? localStorage.getItem("universityId") : null;
     const getProgram = async () => {
       const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
       try {

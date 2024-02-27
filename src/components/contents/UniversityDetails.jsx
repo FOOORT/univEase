@@ -108,7 +108,7 @@ const UniversityDetails = ({ activate }) => {
             <div className=" text-4xl border-2 border-slate-200/60 p-4 rounded-xl flex flex-col gap-4">
               <h2 className="text-blue-500 text-lg font-medium">Programs</h2>
               {program?.program?.map((component) => (
-                <li className="flex items-center gap-2 text-sm">
+                <li key={component} className="flex items-center gap-2 text-sm">
                   <RiVerifiedBadgeFill />
                   {component.name}
                 </li>
